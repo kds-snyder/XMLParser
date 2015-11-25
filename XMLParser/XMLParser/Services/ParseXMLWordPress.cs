@@ -167,11 +167,28 @@ namespace XMLParser.Services
         {
             var postList = new PostList();
 
-            // Get the list of blog post XML nodes
+            //XNamespace contentNameSpace = "http://purl.org/rss/1.0/modules/content/";
+            XNamespace contentNameSpace = getContentNameSpace(xmlDoc);
 
+            var docNameSpace = xmlDoc.Root.Name.Namespace;           
+            
+
+            // Get the blog posts from the XML document
+            // They are in <item> tags, which are under <channel> under <rss>           
+            postList.Posts =
+                xmlDoc.Element("rss").Element("channel").Descendants("item").Select(post => new Post
+                //xmlDoc.Descendants("item").Select(post => new Post                
+                {
+                    BlogInformation = blogInfo,
+                    Content = post.Element(contentNameSpace + "encoded").Value,
+                    Description = post.Element("description").Value,
+                    Link = post.Element("link").Value,
+                    PublicationDate = Convert.ToDateTime(post.Element("pubDate").Value),
+                    Title = post.Element("title").Value
+                }).ToList();
+
+            /*
             var blogPosts = xmlDoc.Descendants("item");
-            XNamespace contentNameSpace = "http://purl.org/rss/1.0/modules/content/";
-            var docNameSpace = xmlDoc.Root.Name.Namespace;
             foreach (var post in blogPosts)
             {
                 var newPost = new Post();
@@ -187,23 +204,25 @@ namespace XMLParser.Services
 
                 postList.Posts.Add(newPost);
             }
-
-            //var posts = xmlDoc.Descendants("item").Select(post => new Post
-            /*
-            var posts = blogPosts.Select(post => new Post
-            {
-                BlogInformation = blogInfo,
-                Content = post.Element(XName.Get("content", "encoded")).Value,
-                Description = post.Element("description").Value,
-                Link = post.Element("link").Value,
-                PublicationDate = Convert.ToDateTime(post.Element("pubDate").Value),
-                Title = post.Element("title").Value
-            });
             */
 
-            //postList.Posts = posts.ToList(); 
-                    
             return postList;
+        }
+
+        // Get the content namespace specified in the input XML document,
+        // from the <rss> tag, attribute xmlns:content
+        // If xmlns:content not found, use default value
+        private static XNamespace getContentNameSpace(XDocument xmlDoc)
+        {
+            XNamespace contentNameSpace = "http://purl.org/rss/1.0/modules/content/";
+
+            var contentAttrib = xmlDoc.Element("rss").Attributes()
+                            .Where(attrib => attrib.IsNamespaceDeclaration &&
+                                   attrib.Name.LocalName == "content").FirstOrDefault();
+
+            if (contentAttrib != null) contentNameSpace = contentAttrib.Value;
+
+            return contentNameSpace;
         }
 
         // Parse XML data from Word Press input URL, using XMLSerialize
