@@ -42,7 +42,7 @@ namespace XMLParser
                         break;
                     case "3":
                         Console.WriteLine("Parsing with LinqToXML");
-                        parseWithLinq(inputURL);
+                        parseWithLinqXML(inputURL);
                         break;
                     default:
                         Console.WriteLine("Parsing with XMLDocument");
@@ -56,7 +56,7 @@ namespace XMLParser
 
 
         // Parse the XML at the input URL with XMLDocument
-        public static void parseWithXMLDocument(string inputURL)
+        private static void parseWithXMLDocument(string inputURL)
         {
 
             // Parse the XML in the URL data
@@ -70,18 +70,18 @@ namespace XMLParser
             {
                 Console.WriteLine(e.Message);
             }
-
         }
 
-        // Parse the XML at the input URL with Linq
-        public static void parseWithLinq(string inputURL)
+        // Parse the XML at the input URL with Linq to XML
+        private static void parseWithLinqXML(string inputURL)
         {
             // Parse the XML in the URL data
             try
             {
-                PostList postList = ParseXMLWordPress.ParseXMLWordPressLinq(inputURL);
+                PostList postList = ParseXMLWordPress.ParseXMLWordPressLinqXML(inputURL);
 
                 // Display the parsed blog data
+                displayPosts(postList);
             }
             catch (Exception e)
             {
@@ -92,7 +92,7 @@ namespace XMLParser
         }
 
         // Parse the XML at the input URL with XMLSerializer
-        public static void parseWithXMLSerializer(string inputURL)
+        private static void parseWithXMLSerializer(string inputURL)
         {
             // Parse the XML in the URL data
             try
@@ -106,11 +106,10 @@ namespace XMLParser
 
                 Console.WriteLine(e.Message);
             }
-
         }
 
         // Display posts
-        public static void displayPosts(PostList postList)
+        private static void displayPosts(PostList postList)
         {
             if (postList == null)
             {

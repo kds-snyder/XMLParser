@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using XMLParser.BlogData;
 using XMLParser.BlogWordPress;
@@ -24,9 +25,9 @@ namespace XMLParser.Services
             XmlDocument xmlData= loadXMLDocFeed(XMLUrl);
 
             // Get the blog information and posts                   
-            BlogInfo blogInfo = getBlogXMLDocInfo(xmlData);
+            BlogInfo blogInfo = getBlogInfoXMLDoc(xmlData);
 
-            PostList postList = getBlogXMLDocPosts(xmlData, blogInfo);
+            PostList postList = getBlogPostsXMLDoc(xmlData, blogInfo);
 
             return postList;
 
@@ -51,7 +52,7 @@ namespace XMLParser.Services
        
         // Get the blog information from the XML data via XMLDocument,
         //  and set it in the returned blog info object
-        private static BlogInfo getBlogXMLDocInfo(XmlDocument xmlData)
+        private static BlogInfo getBlogInfoXMLDoc(XmlDocument xmlData)
         {
             var blogInfo = new BlogInfo();
 
@@ -63,17 +64,19 @@ namespace XMLParser.Services
             blogInfo.Description = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLDescriptionIndex).InnerText;
             blogInfo.Link = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLLinkIndex).InnerText;
 
+            /*
             string blogInfoXMLNodeName = blogInfoXMLNode.Name;
             string blogInfoTitleXMLNodeName = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLTitleIndex).Name;
             string blogInfoDescrXMLNodeName = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLDescriptionIndex).Name;
             string blogInfoLinkXMLNodeName = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLLinkIndex).Name;
+            */
 
             return blogInfo;
         }
 
         // Get the blog posts from the XML data via XMLDocument,
         //  and return a PostList object
-        private static PostList getBlogXMLDocPosts(XmlDocument xmlData, BlogInfo blogInfo)
+        private static PostList getBlogPostsXMLDoc(XmlDocument xmlData, BlogInfo blogInfo)
         {
             var postList = new PostList();
 
@@ -82,22 +85,7 @@ namespace XMLParser.Services
 
             // Set up a post object from each blog post data
             foreach (XmlNode blogPostXML in blogPostXMLNodes)
-            {
-                //DateTime publicationDate = 
-                //    Convert.ToDateTime(blogPostXML.ChildNodes.Item(Constants.BlogPostXMLPublicationDateIndex).InnerText);
-                /*
-                var post = new Post
-                {
-                    BlogInformation = blogInfo,
-                    Content = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLContentIndex).InnerText,
-                    Description = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLDescriptionIndex).InnerText,
-                    Link = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLLinkIndex).InnerText,
-                    PublicationDate = publicationDate,
-                    Title = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLTitleIndex).InnerText,
-                };
-                postList.Posts.Add(post);
-                */
-               
+            {              
                 postList.Posts.Add(new Post
                 {
                     BlogInformation = blogInfo,                  
@@ -108,6 +96,7 @@ namespace XMLParser.Services
                     Title = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLTitleIndex).InnerText
                 });
                 
+                /*
                 string blogPostPubDateXMLNodeName =
                         blogPostXML.ChildNodes.Item(Constants.BlogPostXMLPublicationDateIndex).Name;
                 string blogPostTitleXMLNodeName =
@@ -117,28 +106,103 @@ namespace XMLParser.Services
                 string blogPostDescrXMLNodeName =
                         blogPostXML.ChildNodes.Item(Constants.BlogPostXMLDescriptionIndex).Name;
                 string blogPostContentXMLNodeName =
-                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLContentIndex).Name;               
+                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLContentIndex).Name; 
+                */              
             }
 
             return postList;
         }
 
         // Parse XML data from Word Press input URL, using Linq to XML
-        public static PostList ParseXMLWordPressLinq(string inputUrl)
+        public static PostList ParseXMLWordPressLinqXML(string inputUrl)
         {
             // Get XML string from Word Press blog 
             string xmlUrl = getXMLUrlWordPress(inputUrl);
             string xmlData = WebData.getWebData(xmlUrl);
 
 
-            // Parse the blog XML data into a BlogXML object,
-            //  by converting it to a stream and deserializing it
-            PostList postList = null;
+            // Parse the blog XML data 
+            //  Convert the XML data string to a stream and load it into an XML document
+            //  Get the blog information and the posts            
             using (var xmlStream = xmlData.ToStream())
             {
-                
+                XDocument xmlDoc = XDocument.Load(xmlStream);
+
+                BlogInfo blogInfo = getBlogInfoLinqXML(xmlDoc);
+                /*
+                BlogInfo blogInfo = new BlogInfo
+                {
+                    Title = "Blog title",
+                    Description = "Blog description",
+                    Link = "Blog link"
+                };
+                */
+
+                PostList postList = getBlogPostsLinqXML(xmlDoc, blogInfo);
+
+                return postList;
+            }          
+        }
+
+        // Get the blog information from the XML data via Linq to XML,
+        //  and set it in the returned blog info object
+        private static BlogInfo getBlogInfoLinqXML(XDocument xmlDoc)
+        {
+            var blogInfo = new BlogInfo();
+
+            // Get the blog information XML node
+            var blogInfoXML = xmlDoc.Element("rss").Element("channel");
+
+            // Set the blog information in the blog info object   
+            blogInfo.Description = blogInfoXML.Element("description").Value;
+            blogInfo.Link = blogInfoXML.Element("link").Value;
+            blogInfo.Title = blogInfoXML.Element("title").Value;                   
+
+            return blogInfo;
+        }
+
+        // Get the blog posts from the XML data via Linq to XML,
+        //  and return a PostList object
+        private static PostList getBlogPostsLinqXML(XDocument xmlDoc, BlogInfo blogInfo)
+        {
+            var postList = new PostList();
+
+            // Get the list of blog post XML nodes
+
+            var blogPosts = xmlDoc.Descendants("item");
+            XNamespace contentNameSpace = "http://purl.org/rss/1.0/modules/content/";
+            var docNameSpace = xmlDoc.Root.Name.Namespace;
+            foreach (var post in blogPosts)
+            {
+                var newPost = new Post();
+
+                newPost.BlogInformation = blogInfo;               
+                newPost.Link = post.Element("link").Value;
+                newPost.PublicationDate = Convert.ToDateTime(post.Element("pubDate").Value);
+                newPost.Title = post.Element("title").Value;
+                newPost.Description = post.Element("description").Value;
+
+                XElement contentElement = post.Element(contentNameSpace + "encoded");
+                newPost.Content = post.Element(contentNameSpace + "encoded").Value;
+
+                postList.Posts.Add(newPost);
             }
 
+            //var posts = xmlDoc.Descendants("item").Select(post => new Post
+            /*
+            var posts = blogPosts.Select(post => new Post
+            {
+                BlogInformation = blogInfo,
+                Content = post.Element(XName.Get("content", "encoded")).Value,
+                Description = post.Element("description").Value,
+                Link = post.Element("link").Value,
+                PublicationDate = Convert.ToDateTime(post.Element("pubDate").Value),
+                Title = post.Element("title").Value
+            });
+            */
+
+            //postList.Posts = posts.ToList(); 
+                    
             return postList;
         }
 
