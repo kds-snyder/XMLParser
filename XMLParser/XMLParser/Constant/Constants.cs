@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XMLParser.Constant
 {
-    public static class BlogInfoXML
+    public static class Constants
     {
         // XML node specifications
 
@@ -17,16 +17,13 @@ namespace XMLParser.Constant
         //     <atom:link>
         //     <link>
         //     <description>
-        public const string Node = "/rss/channel";
+        public const string BlogInfoXMLNode = "/rss/channel";
 
         // Element indices (under <channel>) for blog information
-        public const int TitleIndex = 0;       
-        public const int LinkIndex = 2;
-        public const int DescriptionIndex = 3;
+        public const int BlogInfoXMLTitleIndex = 0;       
+        public const int BlogInfoXMLLinkIndex = 2;
+        public const int BlogInfoXMLDescriptionIndex = 3;
 
-    }
-    public static class BlogPostXML
-    {
         // Blog posts:
         // <rss>
         //   <channel> 
@@ -42,15 +39,15 @@ namespace XMLParser.Constant
         //          <![CDATA[
         //       <content:encoded>
         //          <![CDATA[
-        public const string Node = "/rss/channel/item";
+        public const string BlogPostXMLNode = "/rss/channel/item";
 
         // Element indices (under <item>) for blog post
-        public const int TitleIndex = 0;
-        public const int LinkIndex = 1;
-        public const int CommentsIndex = 2;
-        public const int PublicationDateIndex = 3;
-        public const int CreatorIndex = 4;
-        public const int DescriptionIndex = 7;
-        public const int ContentIndex = 8;
+        public const int BlogPostXMLTitleIndex = 0;
+        public const int BlogPostXMLLinkIndex = 1;
+        public const int BlogPostXMLCommentsIndex = 2;
+        public const int BlogPostXMLPublicationDateIndex = 3;
+        public const int BlogPostXMLCreatorIndex = 4;
+        public const int BlogPostXMLDescriptionIndex = 7;
+        public const int BlogPostXMLContentIndex = 8;
     }
 }

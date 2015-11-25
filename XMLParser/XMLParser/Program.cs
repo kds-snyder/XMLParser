@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XMLParser.BlogData;
+using XMLParser.BlogWordPress;
 using XMLParser.Services;
 
 namespace XMLParser
@@ -12,8 +13,7 @@ namespace XMLParser
     {
         static void Main(string[] args)
         {
-            int i;
-
+            
             // Input URL to read
             while (true)
             {
@@ -24,51 +24,117 @@ namespace XMLParser
                     break;
                 }
 
+                Console.WriteLine("Enter:");
+                Console.WriteLine("1 - Parse with XMLDocument");
+                Console.WriteLine("2 - Parse with XMLSerializer");
+                Console.WriteLine("3 - Parse with LinqToXML");
 
-                // Parse the XML in the URL data
-                try
+                string parserChoice = Console.ReadLine();
+                switch(parserChoice)
                 {
-                    Blog blog = ParseXMLWordPress.ParseXMLWordPressData(inputURL);
-
-                    // Display the blog data
-                    Console.WriteLine("Blog Title: {0}", blog.Title);
-                    Console.WriteLine("Blog Description: {0}", blog.Description);
-                    Console.WriteLine("Blog Link: {0}", blog.Link);
-                    Console.WriteLine("Blog Posts: {0}", blog.Posts.Count());
-                    Console.WriteLine("---------------------------------------------------------------------------");
-                    Console.WriteLine(" ");
-
-
-                    if (blog.Posts.Count() > 0)
-                    {
-                        i = 1;
-                        foreach (Post post in blog.Posts)
-                        {
-                            Console.WriteLine("Post # {0}", i);
-                            Console.WriteLine("Publication date: {0}", post.PublicationDate);
-                            Console.WriteLine("Title: {0}", post.Title);
-                            Console.WriteLine("Link: {0}", post.Link);
-                            Console.WriteLine("Description:");
-                            Console.WriteLine(post.Description);
-                            Console.WriteLine("Content:");
-                            Console.WriteLine(post.Content);
-                            Console.WriteLine("---------------------------------------------------------------------------");
-                            Console.WriteLine(" ");
-
-                            ++i;
-                        }
-                        
-                    }
-                   
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-
+                    case "1":
+                        Console.WriteLine("Parsing with XMLDocument");
+                        parseWithXMLDocument(inputURL);
+                        break;
+                    case "2":
+                        Console.WriteLine("Parsing with XMLSerializer");
+                        parseWithXMLSerializer(inputURL);
+                        break;
+                    case "3":
+                        Console.WriteLine("Parsing with LinqToXML");
+                        parseWithLinq(inputURL);
+                        break;
+                    default:
+                        Console.WriteLine("Parsing with XMLDocument");
+                        parseWithXMLDocument(inputURL);
+                        break;
+                }              
            }
 
             Console.ReadLine();
         }
+
+        
+        // Parse the XML at the input URL with XMLDocument
+        public static void parseWithXMLDocument(string inputURL)
+        {
+            int i;
+
+            // Parse the XML in the URL data
+            try
+            {
+                PostList postList = ParseXMLWordPress.ParseXMLWordPressXMLDoc(inputURL);
+              
+                if (postList.Posts.Count() > 0)
+                {
+                    Console.WriteLine("# Blog Posts: {0}", postList.Posts.Count());
+                    Console.WriteLine("---------------------------------------------------------------------------");
+                    Console.WriteLine(" ");
+                    i = 1;
+                    foreach (Post post in postList.Posts)
+                    {
+                        Console.WriteLine("Post # {0}", i);
+                        Console.WriteLine("Blog Title: {0}", post.BlogInformation.Title);
+                        Console.WriteLine("Blog Link: {0}", post.BlogInformation.Link);
+                        Console.WriteLine("Blog Description: {0}", post.BlogInformation.Description);
+                        Console.WriteLine("Post Title: {0}", post.Title);
+                        Console.WriteLine("Post Publication Date: {0}", post.PublicationDate);
+                        Console.WriteLine("Post Link: {0}", post.Link);
+                        Console.WriteLine("Post Description:");
+                        Console.WriteLine(post.Description);
+                        Console.WriteLine("Post Content:");
+                        Console.WriteLine(post.Content);
+                        Console.WriteLine("---------------------------------------------------------------------------");
+                        Console.WriteLine(" ");
+
+                        ++i;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        // Parse the XML at the input URL with Linq
+        public static void parseWithLinq(string inputURL)
+        {
+            // Parse the XML in the URL data
+            try
+            {
+                PostList postList = ParseXMLWordPress.ParseXMLWordPressLinq(inputURL);
+
+                // Display the parsed blog data
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        // Parse the XML at the input URL with XMLSerializer
+        public static void parseWithXMLSerializer(string inputURL)
+        {
+            // Parse the XML in the URL data
+            try
+            {
+                BlogXML blog = ParseXMLWordPress.ParseXMLWordPressXMLSerialize(inputURL);
+
+                // Display the parsed blog data
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
     }
+
+
 }

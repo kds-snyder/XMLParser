@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace XMLParser.BlogData
 {
-    // Blog object
-    public class Blog
-    {        
+    public class BlogInfo
+    {
         public string Title { get; set; }
 
         public string Description { get; set; }
 
         public string Link { get; set; }
-
-        public List<Post> Posts = new List<Post>();
     }
 }

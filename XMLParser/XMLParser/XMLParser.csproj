@@ -43,12 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlogData\Blog.cs" />
+    <Compile Include="BlogData\BlogInfo.cs" />
+    <Compile Include="BlogData\PostList.cs" />
     <Compile Include="BlogData\Post.cs" />
+    <Compile Include="BlogWordPress\BlogXML.cs" />
     <Compile Include="Constant\Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ParseXMLWordPress.cs" />
+    <Compile Include="Services\StringExtensions.cs" />
+    <Compile Include="Services\WebData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

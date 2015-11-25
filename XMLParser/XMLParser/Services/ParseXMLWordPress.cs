@@ -5,91 +5,183 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 using XMLParser.BlogData;
+using XMLParser.BlogWordPress;
 using XMLParser.Constant;
 
 namespace XMLParser.Services
 {
-    // Parse XML of WordPress RSS feed
+    // Parse XML of WordPress blog
     public class ParseXMLWordPress
     {
-        // Parse XML data from Word Press 
-        public static Blog ParseXMLWordPressData(string inputUrl)
+
+        // Parse XML data from Word Press input URL, using XMLDocument
+        public static PostList ParseXMLWordPressXMLDoc(string inputUrl)
         {
-            // Load XML from blog RSS feed
-            XmlDocument xmlData= loadXMLFeed(inputUrl);
+            // Load XML document from Word Press blog 
+            string XMLUrl = getXMLUrlWordPress(inputUrl);
+            XmlDocument xmlData= loadXMLDocFeed(XMLUrl);
 
-            // Get the blog information and posts
-            var blog = new Blog();
+            // Get the blog information and posts                   
+            BlogInfo blogInfo = getBlogXMLDocInfo(xmlData);
 
-            getBlogInfo(xmlData, blog);
+            PostList postList = getBlogXMLDocPosts(xmlData, blogInfo);
 
-            getBlogPosts(xmlData, blog);
-
-            return blog;
+            return postList;
 
         }
 
-        // Load the XML data from the RSS feed at the input URL
-        private static XmlDocument loadXMLFeed(string inputUrl)
-        {
-            string RSSUrl;
-
-            // Append 'feed' or '/feed', depending on whether input ends with '/'
-            if (inputUrl[inputUrl.Length - 1] == '/')
-            {
-                RSSUrl = inputUrl + "feed";
-            }
-            else
-            {
-                RSSUrl = inputUrl + "/feed";
-            }
+        // Load the XML data at the the input URL
+        private static XmlDocument loadXMLDocFeed(string inputUrl)
+        {                    
 
             XmlDocument xmlDoc = new XmlDocument(); // Create an XML document object
             try
             {
-                xmlDoc.Load(RSSUrl); // Load the XML document from the specified file
+                xmlDoc.Load(inputUrl); // Load the XML document from the specified file
             }           
             catch (Exception e)
             {
-                throw new Exception("Unable to read RSS feed at " + inputUrl, e);
+                throw new Exception("Unable to read RSS feed", e);
             }
             
             return xmlDoc;
         }
-
-        // Get the blog information from the XML data,
-        //  and set it in the blog object
-        private static void getBlogInfo(XmlDocument xmlData, Blog blog)
+       
+        // Get the blog information from the XML data via XMLDocument,
+        //  and set it in the returned blog info object
+        private static BlogInfo getBlogXMLDocInfo(XmlDocument xmlData)
         {
-            // Get the blog information XML node
-            XmlNode blogInfoXMLNode = xmlData.SelectSingleNode(BlogInfoXML.Node);
+            var blogInfo = new BlogInfo();
 
-            // Set the blog information in the blog object
-            blog.Title = blogInfoXMLNode.ChildNodes.Item(BlogInfoXML.TitleIndex).InnerText;
-            blog.Description = blogInfoXMLNode.ChildNodes.Item(BlogInfoXML.DescriptionIndex).InnerText;
-            blog.Link = blogInfoXMLNode.ChildNodes.Item(BlogInfoXML.LinkIndex).InnerText;
+            // Get the blog information XML node
+            XmlNode blogInfoXMLNode = xmlData.SelectSingleNode(Constants.BlogInfoXMLNode);
+
+            // Set the blog information in the blog info object
+            blogInfo.Title = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLTitleIndex).InnerText;
+            blogInfo.Description = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLDescriptionIndex).InnerText;
+            blogInfo.Link = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLLinkIndex).InnerText;
+
+            string blogInfoXMLNodeName = blogInfoXMLNode.Name;
+            string blogInfoTitleXMLNodeName = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLTitleIndex).Name;
+            string blogInfoDescrXMLNodeName = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLDescriptionIndex).Name;
+            string blogInfoLinkXMLNodeName = blogInfoXMLNode.ChildNodes.Item(Constants.BlogInfoXMLLinkIndex).Name;
+
+            return blogInfo;
         }
 
-        // Get the blog posts from the XML data
-        private static void getBlogPosts(XmlDocument xmlData, Blog blog)
+        // Get the blog posts from the XML data via XMLDocument,
+        //  and return a PostList object
+        private static PostList getBlogXMLDocPosts(XmlDocument xmlData, BlogInfo blogInfo)
         {
-            // Get the list of blog post XML nodes
-            XmlNodeList blogPostXMLNodes = xmlData.SelectNodes(BlogPostXML.Node); 
+            var postList = new PostList();
 
-            // Set up a post object from each blog post data, in the blog object
+            // Get the list of blog post XML nodes
+            XmlNodeList blogPostXMLNodes = xmlData.SelectNodes(Constants.BlogPostXMLNode); 
+
+            // Set up a post object from each blog post data
             foreach (XmlNode blogPostXML in blogPostXMLNodes)
             {
-                var blogPost = new Post();
-                blogPost.PublicationDate = 
-                    Convert.ToDateTime(blogPostXML.ChildNodes.Item(BlogPostXML.PublicationDateIndex).InnerText);
-                blogPost.Title = blogPostXML.ChildNodes.Item(BlogPostXML.TitleIndex).InnerText;
-                blogPost.Link = blogPostXML.ChildNodes.Item(BlogPostXML.LinkIndex).InnerText;
-                blogPost.Description = blogPostXML.ChildNodes.Item(BlogPostXML.DescriptionIndex).InnerText;
-                blogPost.Content = blogPostXML.ChildNodes.Item(BlogPostXML.ContentIndex).InnerText;
-
-                blog.Posts.Add(blogPost);
+                //DateTime publicationDate = 
+                //    Convert.ToDateTime(blogPostXML.ChildNodes.Item(Constants.BlogPostXMLPublicationDateIndex).InnerText);
+                /*
+                var post = new Post
+                {
+                    BlogInformation = blogInfo,
+                    Content = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLContentIndex).InnerText,
+                    Description = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLDescriptionIndex).InnerText,
+                    Link = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLLinkIndex).InnerText,
+                    PublicationDate = publicationDate,
+                    Title = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLTitleIndex).InnerText,
+                };
+                postList.Posts.Add(post);
+                */
+               
+                postList.Posts.Add(new Post
+                {
+                    BlogInformation = blogInfo,                  
+                    Content = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLContentIndex).InnerText,
+                    Description = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLDescriptionIndex).InnerText,
+                    Link = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLLinkIndex).InnerText,
+                    PublicationDate = Convert.ToDateTime(blogPostXML.ChildNodes.Item(Constants.BlogPostXMLPublicationDateIndex).InnerText),
+                    Title = blogPostXML.ChildNodes.Item(Constants.BlogPostXMLTitleIndex).InnerText
+                });
+                
+                string blogPostPubDateXMLNodeName =
+                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLPublicationDateIndex).Name;
+                string blogPostTitleXMLNodeName =
+                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLTitleIndex).Name;
+                string blogPostLinkXMLNodeName =
+                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLLinkIndex).Name;
+                string blogPostDescrXMLNodeName =
+                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLDescriptionIndex).Name;
+                string blogPostContentXMLNodeName =
+                        blogPostXML.ChildNodes.Item(Constants.BlogPostXMLContentIndex).Name;               
             }
+
+            return postList;
+        }
+
+        // Parse XML data from Word Press input URL, using Linq to XML
+        public static PostList ParseXMLWordPressLinq(string inputUrl)
+        {
+            // Get XML string from Word Press blog 
+            string xmlUrl = getXMLUrlWordPress(inputUrl);
+            string xmlData = WebData.getWebData(xmlUrl);
+
+
+            // Parse the blog XML data into a BlogXML object,
+            //  by converting it to a stream and deserializing it
+            PostList postList = null;
+            using (var xmlStream = xmlData.ToStream())
+            {
+                
+            }
+
+            return postList;
+        }
+
+        // Parse XML data from Word Press input URL, using XMLSerialize
+        public static BlogXML ParseXMLWordPressXMLSerialize(string inputUrl)
+        {
+            // Get XML string from Word Press blog 
+            string xmlUrl = getXMLUrlWordPress(inputUrl);
+            string xmlData = WebData.getWebData(xmlUrl);
+
+            //Console.WriteLine("XML data:");
+            //Console.WriteLine(xmlData);
+
+            // Get the blog information and posts
+            //var blogXML = new BlogXML();
+
+            // Parse the blog XML data into a BlogXML object,
+            //  by converting it to a stream and deserializing it
+            var xmlSerializer = new XmlSerializer(typeof(BlogXML));
+            using (var xmlStream = xmlData.ToStream())
+            {
+                var blogXML = (BlogXML)xmlSerializer.Deserialize(xmlStream);
+                return blogXML;
+            }
+        }
+
+        // Return the URL of the XML for the input URL of a Word Press blog
+        // The XML URL is: <Word-Press-Url>/feed       
+        private static string getXMLUrlWordPress(string inputUrl)
+        {
+            string XMLUrl;
+
+            // Append 'feed' or '/feed', depending on whether input ends with '/'
+            if (inputUrl[inputUrl.Length - 1] == '/')
+            {
+                XMLUrl = inputUrl + "feed";
+            }
+            else
+            {
+                XMLUrl = inputUrl + "/feed";
+            }
+
+            return XMLUrl;
         }
     }
 }

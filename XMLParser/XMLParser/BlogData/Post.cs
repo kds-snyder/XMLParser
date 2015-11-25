@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace XMLParser.BlogData
 {
-    // Blog post object
     public class Post
     {
+        public BlogInfo BlogInformation { get; set; }
+        
         public DateTime PublicationDate { get; set; }
 
         public string Title { get; set; }

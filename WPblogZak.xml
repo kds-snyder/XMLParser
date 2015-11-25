@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+    <channel>
+        <title>Dietzen Development</title>
+        <atom:link href="http://zakdietzen.com/feed/" rel="self" type="application/rss+xml" />
+        <link>http://zakdietzen.com</link>
+        <description>Coding Crunch</description>
+        <lastBuildDate>Fri, 20 Nov 2015 02:56:01 +0000</lastBuildDate>
+        <language>en-US</language>
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+        <generator>http://wordpress.org/?v=4.3.1</generator>
+        <image>
+            <url>http://i0.wp.com/zakdietzen.com/wp-content/uploads/2015/11/cropped-Origin-Code-Academy-Logo-Design-Horizontal.jpg?fit=32%2C32</url>
+            <title>Dietzen Development</title>
+            <link>http://zakdietzen.com</link>
+            <width>32</width>
+            <height>32</height>
+        </image>
+        <item>
+            <title>Say Hello To My Little Friend Mob Programming</title>
+            <link>http://zakdietzen.com/2015/11/13/say-hello-to-my-little-friend-mob-programming/</link>
+            <comments>http://zakdietzen.com/2015/11/13/say-hello-to-my-little-friend-mob-programming/#comments</comments>
+            <pubDate>Fri, 13 Nov 2015 19:02:26 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=28</guid>
+            <description>
+                <![CDATA[<p>Week 8 has come and gone. We started doing a little thing called mob programminMob programming isnt a bunch of programmers gunning each other down in the streets. Its a software development approach where the whole team works on the same thing, at the same time, in the same space, and at the same computer. [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/11/13/say-hello-to-my-little-friend-mob-programming/">Say Hello To My Little Friend Mob Programming!</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>Week 8 has come and gone. We started doing a little thing called mob programming.  Mob programming isn’t a bunch of programmers gunning each other down in the streets. It’s a software development approach where the whole team works on the same thing, at the same time, in the same space, and at the same computer. This is similar to pair programming where two people sit at the same computer and collaborate on the same code at the same time. With Mob Programming the collaboration is extended to everyone on the team, while still using a single computer for writing the code.</p><p>At first I thought this would be a very counter productive way to program. Having only one person on one computer while the others navigate seems less efficient than having everyone work individually. But in actuality it turned out to be quite the opposite. When you have several brains looking at one problem you can quickly throw around ideas quickly while the driver, the one person actually inputting the code, constructs the code that the navigators are coming up with. It seemed like as a group we easily ran through all the problems we had to solve. When individually it would have taken a lot more time to see the problem and actually come up with a solution.</p><p>As a team we started working on a medical application for a hypothetical doctors office called MedAgenda. What it does is allows patients to check in, as well as doctors, and creates appointments for them automatically. We started off by going through our product backlog. A product backlog is something the owner of the product creates. The product owner adds what he wants the application to do. As a team we broke down the product backlog and planned out our sprint for the week. Once we had our sprint planned out and everything broken down into how long we think each feature will take to complete we moved into mob programming.</p><p>As a mob of passionate hungry programmers, we started discussing our database structure and what we all needed for that. It literally took us the whole day to plan this out. I had no idea how much actual time and thought needs to go into planning a database. We each took turns driving the computer and inputting the code that the rest of the mob was feeding us. It was beneficial to here how everyone would approach the problem. Programmers code can differ a lot from one another.</p><p>Once we had the database ironed out we broke off individually and started working on our own parts of the application. I worked on my section of the application as much as I could this week. At Origin Code Academy we have a meetup every Thursday. The founder Jeff Winkler asked me about 2 days before our meetup to give a presentation. So, I had to put the project on hold for a day to get ready for the presentation.</p><p>I did my presentation on a nifty package manager called Bower. I won’t go into it to much in this blog post, it deserves it’s own. The presentation was not as smooth as I would have liked it to be. I would have liked it to go a little better. But hey, when you demo things, they always break. It was a great week to give a presentation at the meetup though because my mom came to visit me!! I had not seen here in awhile and I was extremely excited to have her in town for the weekend.</p><p>The next day we had Justin Mealy came to the class to speak to us. He is the CEO of Pleenq. It’s an awesome tool for blogs or eCommerce stores. Check out their website at<a href="http://www.pleenq.com/" rel="nofollow">http://www.pleenq.com</a>. You can see a tutorial on what they do. He is an extremely good with JavaScript. We learned a lot about what we as programmers need to focus on to become dangerous. He gave us great tips on not taking feedback of your code to heart. If you are not willing to learn to make yourself better you will never grown as a programmer. After his talk and our questions he gave us the actual coding test he gives his potential hires. It was not easy for me at all having a weak background in JavaScript. It was an exhausting Friday to say the least, but very well worth it!</p><p>Thanks for checking in on my week 8 at Origin Code Academy. I Can’t wait to spend the rest of the weekend with my mom! Make sure to check back in for week 9 to see how the rest of MedAgenda is coming along. See you next week mang.</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/11/13/say-hello-to-my-little-friend-mob-programming/">Say Hello To My Little Friend… Mob Programming!</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/11/13/say-hello-to-my-little-friend-mob-programming/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>All about Olaf.. or wait, I mean 0Auth!</title>
+            <link>http://zakdietzen.com/2015/11/06/all-about-olaf-or-wait-i-mean-0auth/</link>
+            <comments>http://zakdietzen.com/2015/11/06/all-about-olaf-or-wait-i-mean-0auth/#comments</comments>
+            <pubDate>Fri, 06 Nov 2015 19:01:03 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=25</guid>
+            <description>
+                <![CDATA[<p>Our instructor Cameron is British, so every time he would say 0Auth I thought he was saying Olaf. The name of the snowman in the Disney movie Frozen. I could not have been more wrong. 0Auth isn’t a friendly snowman, more so a scary coding nightmare! There are so many moving parts to authentication its crazy. [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/11/06/all-about-olaf-or-wait-i-mean-0auth/">All about Olaf.. or wait, I mean 0Auth!</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>Our instructor Cameron is British, so every time he would say 0Auth I thought he was saying Olaf. The name of the snowman in the Disney movie Frozen. I could not have been more wrong. 0Auth isn’t a friendly snowman, more so a scary coding nightmare! There are so many moving parts to authentication its crazy.</p><p>We started out the week with an introduction to 0Auth and how it all works. I would try and explain it all to you in this blog, but honestly you would be better off googling! It’s not an easy subject to understand. After Cameron gave us the run down on 0Auth we were given some tutorials to do to help us understand how authentication works. If you would like to do those tutorials you can find them <a href="http://bitoftech.net/2014/06/01/token-based-authentication-asp-net-web-api-2-owin-asp-net-identity/">here</a>.</p><p>Now that we had had some background on authentication we were to take our Property Manager application and add authentication. This took us the rest of the week to complete and it was not an easy task. A lot of us kept having trouble with Cross Origin Resource Sharing (CORS).</p><p>I don’t have a lot of free time to write so I apologize for the short post this week. I will try and free up time to write more the next post. We take on Mob Programming next week so make sure to read next weeks blog!</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/11/06/all-about-olaf-or-wait-i-mean-0auth/">All about Olaf.. or wait, I mean 0Auth!</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/11/06/all-about-olaf-or-wait-i-mean-0auth/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Angular, A Week Worth Smiling About!</title>
+            <link>http://zakdietzen.com/2015/10/31/a-week-worth-smiling-about/</link>
+            <comments>http://zakdietzen.com/2015/10/31/a-week-worth-smiling-about/#comments</comments>
+            <pubDate>Sat, 31 Oct 2015 18:58:07 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=21</guid>
+            <description>
+                <![CDATA[<p>I ended up getting a slight cold and it really drained all of my energy this past weekend. Despite the small setback, this week has been awesome! I felt like I was completely lost last week working with Knockout, but now Zak is back! We learned about an alternative to KnockoutJS this week, and that [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/31/a-week-worth-smiling-about/">Angular, A Week Worth Smiling About!</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>I ended up getting a slight cold and it really drained all of my energy this past weekend. Despite the small setback, this week has been awesome! I felt like I was completely lost last week working with Knockout, but now Zak is back! We learned about an alternative to KnockoutJS this week, and that alternative is AngularJS. Angular has been so awesome to work with and is very powerful. I found it much more structured and less chaotic than Knockout. I would love to never work with knockout again but I know that won’t make me a very good developer. So, I really would like to go back and study it more.</p><p>The projects we have worked on this have been the most fun to build yet. I am starting to get the hang of JavaScript more and html and css is getting pretty easy. Working with Angular we built a b<img class="alignnone size-medium wp-image-88 alignright" src="https://zakdietzendotcom.files.wordpress.com/2015/10/chipotle-finder-screenshot1.png?w=450&amp;h=273" alt="Chipotle Finder Screenshot1" width="300" height="182" />udget calculator, Chipotle Locator, an interactive resume, and an API! We will be taking the API we built and will be building the front end over the weekend. So, technically… I am a full stack developer!!  We also learned about an AMAZING package installer called Bower. It makes installing everything so easy. I highly recommend everyone check it out.</p><p>I am really glad we went back and created another API using Entity Framework this week and introduced AutoMapper. AutoMapper was really awesome to work with and made creating databases a lot easier. I felt like making the API this time was a lot easier than the first time we made one. All the extra tools we have learned since then have been game changers.</p><p>We had a MeetUp this week at Zeeto. There were a few lightning talks on JavaScript tools, Agile Development, and gave us a tour of their incredible office. You can learn more about what Zeeto does by clicking <a href="http://www.zeeto.io/">here</a>. We also had 2 guest speakers this Friday. Clint Johnson, an IT technical recruiter at ManpowerGroup was our first speaker. Clint came in and talked about the job hunting process and what we should expect. He also gave great tips on resume building. Our second speaker was Bryan Hall. Bryan is the Co-founder and CTO at Email Copilot. His company works in the same space as Origin so it was awesome to get a chance to hear him talk and ask him questions. He gave us some solid advice on interviews and advice on what we should do as Jr. Devs to make us better and easier to work with. Having speakers come in every Friday has been so helpful.</p><p>It really does amaze me how far we have all come in 6 weeks. We are learning so many tools and they are getting sharper and sharper each time we use them. It is also unbelievable my time at Origin Code Academy is already halfway over. They say time flies when you are having fun, I can say with confidence that is true! I can not wait to see what the next 6 weeks brings.</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/31/a-week-worth-smiling-about/">Angular, A Week Worth Smiling About!</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/10/31/a-week-worth-smiling-about/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Is It Acceptable To Cry In Class?</title>
+            <link>http://zakdietzen.com/2015/10/23/is-it-acceptable-to-cry-in-class/</link>
+            <comments>http://zakdietzen.com/2015/10/23/is-it-acceptable-to-cry-in-class/#comments</comments>
+            <pubDate>Fri, 23 Oct 2015 18:56:19 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=19</guid>
+            <description>
+                <![CDATA[<p>In my last blog post I mentioned it being the hardest week yet. Well, this week surpassed that 10 fold. I really feel lost currently but I am excited to say that we won’t be learning anymore new languages. This gives me a chance to go back and read over everything and study it more. [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/23/is-it-acceptable-to-cry-in-class/">Is It Acceptable To Cry In Class?</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>In my last blog post I mentioned it being the hardest week yet. Well, this week surpassed that 10 fold. I really feel lost currently but I am excited to say that we won’t be learning anymore new languages. This gives me a chance to go back and read over everything and study it more.</p><p>We started learning front end this week. We took a few older projects and built a front end for them. I really felt like I struggled with the new materiel because I knew nothing about JavaScript, CSS, and HTML before this week. We moved on from C# and started working with the above tools. Right when I felt like I was understanding the C# I get thrown a curve ball. It hasn’t been all to bad though. Being thrown into the deep end teaches you how to swim, or sink if you just give up. This is the first time I felt like I was getting completely left behind/lost. Instead of sinking though, I’ve been reading, watching videos, and doing tutorials online to understand JavaScript and HTML. I am struggling still with time management now that I have to learn these new tools and still try and get all my projects done for class. There just isn’t enough time in the day.</p><p>A really fun project we worked on this week was our “Movie Nerd” application. We used knockout.js and bootstrap to create a responsive webpage that scales to different size screens.<img class="alignnone size-medium wp-image-52 alignright" src="https://zakdietzendotcom.files.wordpress.com/2015/10/movie-nerd-screenshot.png?w=450&amp;h=390" alt="Movie Nerd Screenshot" width="300" height="260" /> We called a movie database API that returned information on whatever movie the user input. This project was my first time working with JavaScript and my first time with knockout,js and bootstrap. Both of those tools were extremely useful and interesting to learn but also took a lot of my time. I had to read up on all the documentation, watch videos, and do the tutorials on their site to try and understand what I was doing.</p><p>Another project that we worked on this week was our BigBank API and making it a full stack application. We were to build the front end and use knockout.js and bootstrap again. This has been by far the most difficult task to date in the class. I’ve been coding away for the past 3 days non stop and still have yet to get the project finished. Whenever you think you get close to being finished you find out you are nowhere close. There is always something to add or fix and it seems to be never ending. It is encouraging that I am only a month into learning this and have been able to complete mostly all of my projects.</p><p>Thursday night we had a MeetUp at the Evo Nexus building and wow what a turnout! Ever seat in the place had a body in it. We went over some JavaScript and learned what it does. We checked out a few awesome websites from the 90’s that had no/very little JavaScript. Needless to say that was a blast from the past! It is really incredible how far the web has come from its beginning stages. We also had a guest speaker, Nick Head, he is the Director of Software Development at HireAHelper.com, come and speak to us. He gave us some valuable information for Jr Devs on hiring, tools they use, and some great sources like blogs and podcasts. I love being able to have access to all these Developers and CTO’s every week.</p><p>That’s enough blogging for now though. I have to wipe the tears from my eyes and jump back into the gauntlet! Time to get in the zone and bust out some code! Hope everyone has a wonderful weekend. Check back in next week as always.</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/23/is-it-acceptable-to-cry-in-class/">Is It Acceptable To Cry In Class?</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/10/23/is-it-acceptable-to-cry-in-class/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Wild and Wonderful Week 4</title>
+            <link>http://zakdietzen.com/2015/10/16/wild-and-wonderful-week-4/</link>
+            <comments>http://zakdietzen.com/2015/10/16/wild-and-wonderful-week-4/#comments</comments>
+            <pubDate>Fri, 16 Oct 2015 18:55:29 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=14</guid>
+            <description>
+                <![CDATA[<p>Week 4 was a big week for us here at Origin Code Academy. We started working with Databases, learned about Object Relational Mapping such as Entity Framework, and even created our very own API. There was so much information thrown at us this week I definitely feel overwhelmed. We first started working with databases. Our [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/16/wild-and-wonderful-week-4/">Wild and Wonderful Week 4</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>Week 4 was a big week for us here at Origin Code Academy. We started working with Databases, learned about Object Relational Mapping such as Entity Framework, and even created our very own API.</p><p>There was so much information thrown at us this week I definitely feel overwhelmed. We first started working with databases. Our task was to build a database that held information on the customer, accounts, and transactions. We were then going to take the database we created and use Entity Framework with it.</p><p>The next day or so we spent learning about ORM, Object Relational Mapping. ORM is a programming technique for converting data between incompatible type systems in object oriented programming languages. This creates, in effect, a “virtual object database” that can be used from within the programming language. We then built out a console application which displayed our information we had stored in our database.</p><p>We even took that a step further this week. We built our own API’s! This was something I wasn’t expecting to be doing in week 4! Cameron, our instructor, gave us an awesome lecture on how awesome API’s are and how to create one. We learned about the CRUD method which stand for Create, Read, Update, Delete. The assignment was definitely the hardest one we have done thus far. I will admit though it is amazing when you get your API to return JSON data to you.</p><p>This week has been so crazy as far as time goes. If someone can come up with a solution for more hours in the day that would be great. I would have loved to have some more time to go back on previous projects and improve them, I would like to read more of the reading material/books we are given, I would like to go and watch some videos on stuff we learned to further cement the knowledge in my memory. and I would like to have some time to catch up on sleep. Due to all of these assignments I barely had time to write my blog this week so I apologize for that. So if anyone has any tips on time management post them in the comments! Don’t for get to check back next week to see how week 5 is going!</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/16/wild-and-wonderful-week-4/">Wild and Wonderful Week 4</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/10/16/wild-and-wonderful-week-4/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Things are getting interesting.</title>
+            <link>http://zakdietzen.com/2015/10/09/things-are-getting-interesting/</link>
+            <comments>http://zakdietzen.com/2015/10/09/things-are-getting-interesting/#comments</comments>
+            <pubDate>Fri, 09 Oct 2015 18:52:22 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=12</guid>
+            <description>
+                <![CDATA[<p>This week we dove into the wonderful world of API’s. We were given an introduction to API’s and how they worked Monday in class. We were then told to build a program that fetched github data about a user and displays that information to us. It was a great first exercise. It was a lot [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/09/things-are-getting-interesting/">Things are getting interesting.</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>This week we dove into the wonderful world of API’s. We were given an introduction to API’s and how they worked Monday in class. We were then told to build a program that fetched github data about a user and displays that information to us. It was a great first exercise. It was a lot of fun learning about what you can do with an API and the information it gives you. We worked with other API’s as well. We created a high frequency trading app (not one that you would want to actually use) this week as well. It would get information using Yahoo finances API and would give us information on buying and selling a stock if the price would raise/decrease. We built a weather app the gets information from the zip code the user enters. This was a really fun app to<br />
+build and helped me understand how to take the data received from the API and turn it into a JSON string. We can then take that JSON and display our information from the API to the user. I could go on and on about all the cool stuff we have been doing with API’S but ill move on for now.</p><p>I’m struggling with keeping my code organized and keeping track of where I am when I code. It’s hard to remember exactly where you left off at when you take a break from your project. I found that keeping a “captains log” of what you were doing and where you were in your code really helps out with that. In the next coming weeks I really want to buckle down and having organized clean code. This is also the first week I didn’t get all my assignments completely finished. I’m going to take time from this upcoming weekend though to go back and make sure I get everything done.</p><p>One thing I really like about the code class is having other students there with me. It’s awesome being able to slack one of them, or the teacher, and ask for help trying to figure something out. We all work really well together and try and give each other tips and tricks along the way.</p><p>Even after three weeks, when you compile your code with no errors I still get a rush. It’s so rewarding seeing your code run error free. Watching something start from nothing and then seeing the actual program run is the best! You feel so accomplished getting everything to work. It’s also equally as frustrating to work for hours and get no where. The only advice I can give you there is stay persistent. Keep plugging away at it and you will eventually figure it out.</p><p>It’s been a tough yet rewarding week. I cant wait to dive into next weeks lessons on databases. Check back in next week as always for a look into week 4 at Origin Code Academy!</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/09/things-are-getting-interesting/">Things are getting interesting.</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/10/09/things-are-getting-interesting/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>You Down With OOP&#8230;</title>
+            <link>http://zakdietzen.com/2015/10/02/you-down-with-oop/</link>
+            <comments>http://zakdietzen.com/2015/10/02/you-down-with-oop/#comments</comments>
+            <pubDate>Fri, 02 Oct 2015 18:48:37 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=9</guid>
+            <description>
+                <![CDATA[<p>Ya you know me! Much like the song by Naughty by Nature, I am down with Object Oriented Programming. That was a big concept we learned in week 2. To help explain OOP think of a class called Vehicle and describe the minimum things that a vehicle is. For example, ask yourself what you think a [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/02/you-down-with-oop/">You Down With OOP&#8230;</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>Ya you know me! Much like the song by Naughty by Nature, I am down with Object Oriented Programming. That was a big concept we learned in week 2.</p><p>To help explain OOP think of a class called <span style="font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;"><span style="font-size: 13px; line-height: normal;">Vehicle and</span></span> describe the minimum things that a vehicle is. For example, ask yourself what you think a vehicle is? You may say things like &#8220;Well, like a car or a truck&#8221; Now what is the differences between a car and a truck. You may come up with size, the purpose, or other similar things.</p><p>Now continue to describe a vehicle, &#8220;Oh, well it moves&#8221;, &#8220;It has an operator, or a driver&#8221; etc&#8230;</p><p>Soon, you know what a Vehicle is and in OOP we would define a vehicle, and for the sake of argument say it can move, and give it a driver of sorts. Then ask, what does a Car have? &#8220;Doors, windows etc&#8230;&#8221;</p><p>And then a truck&#8230;. &#8220;Doors&#8221; &#8220;windows&#8221; &#8220;More Wheels!&#8221;</p><p>Soon, after lots of ideas are come up with, you generally have identified:</p><p>1) What constitutes a vehicle</p><p>2) What constitutes a car</p><p>3) What constitutes a truck</p><p>4) What constitutes an air plane.</p><p>5) And so on.</p><p>This is object oriented programming explained in the most basic way I can think off. Sometimes learning code you get stuck, I shouldn&#8217;t say sometimes. It actually happens very very frequently. A little trick that we learned this week is Rubberduck Debugging. What this is, is debug your code by forcing yourself to explain it, line-by-line, to a rubber duck or some other object of your choosing. This makes you break down your code and really understand what is going on. As you can see from the blog image I have a Viking duck named Frode, which is a Nordic name that means &#8220;learned, wise&#8221;. He is pretty good at helping me figure out my mistakes. I highly recommend you rubber duck debug whenever you get stuck.</p><p>This week I have been working on a lot of new projects as well as trying to clean up some of the projects from last week. We started working with grids this week and learned how to save and load files among other things. Things are definitely getting more intricate but luckily for us Origin Code Academy students our teacher is always their to help us out when things look extremely daunting.</p><p>Come back next week to see how its going!</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/10/02/you-down-with-oop/">You Down With OOP&#8230;</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/10/02/you-down-with-oop/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>And so my journey begins&#8230;</title>
+            <link>http://zakdietzen.com/2015/09/25/and-so-my-journey-begins/</link>
+            <comments>http://zakdietzen.com/2015/09/25/and-so-my-journey-begins/#comments</comments>
+            <pubDate>Fri, 25 Sep 2015 18:39:50 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[Zak]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://zakdietzen.com/?p=5</guid>
+            <description>
+                <![CDATA[<p>If you would of asked me what I would of been doing a month ago I would have told you real estate. I have always loved computers and technology growing up, but never would I have thought that I would one day be learning the code to make such things work. I was asked what [&#8230;]</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/09/25/and-so-my-journey-begins/">And so my journey begins&#8230;</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>If you would of asked me what I would of been doing a month ago I would have told you real estate. I have always loved computers and technology growing up, but never would I have thought that I would one day be learning the code to make such things work. I was asked what I thought about learning to code by a friend. At the time I hadn&#8217;t given it much thought but it sounded very interesting and lucrative. There was a coding school starting 4 days after I was asked that question. I thought about it for about 24 hours before I decided to drop everything and fly to San Diego to start at Origin Code Academy.</p><p>I was extremely nervous leaving everything behind for the next three months to attend this coding school. Once I made my decision though I knew it was the correct one. I arrived in San Diego on the Thursday before class started and was actually interviewed by CBS right when I arrived! It was my  TV debut so that was pretty fun. They basically asked me general questions on why I decided to learn to code. My answer to that, because technology is everywhere and it all needs code to run.</p><p>The first day of class was great. We all introduced ourselves and got to know everyone. The instructor passed out all the necessary programs and applications we needed via a 32GB thumb-drive to each of us (that was a bonus, can always use thumb-drives)! We took most of the day setting up all of our machines and making sure we were good to go for the second day of class. The second day is when the teaching of C# started. Holy S$%* did I think I was screwed&#8230; It all seemed so foreign to me. I didn&#8217;t really know what was going on at first but I kept at it and it eventually started to make more sense. The third day is when things started to click! I was listening to our amazing instructor Cameron and I can&#8217;t explain what happened but it just started to make since.</p><p>I first built an age calculator. You input your date of birth and it spits out your age to the day. This was pretty hard because it was our first project and I still wasn&#8217;t sure what I was doing.  The second project though which we started day 3 was a tile calculator. User inputs the rooms width, length, and cost per square foot of material, and outputs the area and the total cost of the job. This is the project where everything started to make since. Man, it sure does put a smile on your face when you compile some code and you get no errors! The third project was a change calculator. It would tell you the amount you need to give back to the customer. It also would tell you the exact number of each coin and bill to give them. All of these I didn&#8217;t think I would even come close to being able to do but let me assure you it is possible. I did all of this in 4 days!</p><p>The first week of class has been amazing and I am looking forward to week 2! I will try and post at least once a week so you all can keep checking in. I will also try and get some of my code uploaded so you all can view and comment on it. I hope this post has inspired you to follow along the journey to becoming a coding boss! Lets become G.O.A.T (Greatest Of All Time) together!</p><p>The post <a rel="nofollow" href="http://zakdietzen.com/2015/09/25/and-so-my-journey-begins/">And so my journey begins&#8230;</a> appeared first on <a rel="nofollow" href="http://zakdietzen.com">Dietzen Development</a>.</p>
+]]>
+            </content:encoded>
+            <wfw:commentRss>http://zakdietzen.com/2015/09/25/and-so-my-journey-begins/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        </item>
+    </channel>
+</rss>

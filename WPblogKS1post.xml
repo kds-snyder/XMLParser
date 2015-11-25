@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+    <channel>
+        <title>Karen Snyder</title>
+        <atom:link href="https://kdssnyder.wordpress.com/feed/" rel="self" type="application/rss+xml" />
+        <link>https://kdssnyder.wordpress.com</link>
+        <description>Return to development via Origin Coding Academy</description>
+        <lastBuildDate>Sun, 22 Nov 2015 00:05:33 +0000</lastBuildDate>
+        <language>en</language>
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+        <generator>http://wordpress.com/</generator>
+        <cloud domain='kdssnyder.wordpress.com' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+        <image>
+            <url>https://s2.wp.com/i/buttonw-com.png</url>
+            <title>Karen Snyder</title>
+            <link>https://kdssnyder.wordpress.com</link>
+        </image>
+        <atom:link rel="search" type="application/opensearchdescription+xml" href="https://kdssnyder.wordpress.com/osd.xml" title="Karen Snyder" />
+        <atom:link rel='hub' href='https://kdssnyder.wordpress.com/?pushpress=hub'/>
+        <item>
+            <title>Ninth Week in Coding Bootcamp: Continuing Group Project</title>
+            <link>https://kdssnyder.wordpress.com/2015/11/21/ninth-week-in-coding-bootcamp-continuing-group-project/</link>
+            <comments>https://kdssnyder.wordpress.com/2015/11/21/ninth-week-in-coding-bootcamp-continuing-group-project/#respond</comments>
+            <pubDate>Sat, 21 Nov 2015 23:51:35 +0000</pubDate>
+            <dc:creator>
+                <![CDATA[kdssnyder]]>
+            </dc:creator>
+            <category>
+                <![CDATA[Uncategorized]]>
+            </category>
+            <guid isPermaLink="false">http://kdssnyder.wordpress.com/?p=99</guid>
+            <description>
+                <![CDATA[On November 16 I started the ninth week at Origin Code Academy. I completed the assigned screens, and did some pair programming on the doctor screens. When we had all the basic screens done, we started to work on the automatic appointment scheduler part of the application. As this was a complex module that needed to&#8230;<img alt="" border="0" src="https://pixel.wp.com/b.gif?host=kdssnyder.wordpress.com&#038;blog=101346606&#038;post=99&#038;subd=kdssnyder&#038;ref=&#038;feed=1" width="1" height="1" />]]>
+            </description>
+            <content:encoded>
+                <![CDATA[<p>On November 16 I started the ninth week at <a href="http://origincodeacademy.com/" target="_blank">Origin Code Academy</a>. I completed the assigned screens, and did some pair programming on the doctor screens. When we had all the basic screens done, we started to work on the automatic appointment scheduler part of the application. As this was a complex module that needed to apply several rules in order to determine which doctor to schedule for a checked-in patient, we applied mob programming and were able to break down the problem and write the code to implement it in the application back end.</p><p>After we had completed the code for the appointment scheduler, Cameron suggested that we should write some test methods for it, rather than simply plugging it into the front end and then playing around with the application to test it.</p><p>This was not only an opportunity to work more with writing test methods, but also we learned from Cameron how to create an in-memory test double of the Entity Framework database, and inject that database context into the test methods (a great example of dependency injection!), so that we could avoid using the real database for our test methods. To create the test database context, we used the techniques discussed <a href="https://msdn.microsoft.com/en-us/data/dn314431.aspx" target="_blank">here</a>.</p><p>It is much better to have a test database that mocks the real database for test methods; we had been writing test methods that use the real database, which meant that a test method had to delete any test objects that it created, and if a test method failed, it was necessary to delete the test objects manually, via SQL server or the front end. Although implementing the test database took quite a bit of code, it was worth it.</p><p>We also learned how to use load masks in the front end, so that while a table is loading, a spinner is shown to indicate to the user that the loading is being performed, and they need to wait for it to complete. It was good that rather than having to spend time figuring out how to write a spinner in HTML/CSS/Javascript, we could use the pre-existing <a href="http://ngmodules.org/modules/angular-spinner" target="_blank">angular spinner</a>. It&#8217;s not that I don&#8217;t want the challenge of writing an animated spinner, it&#8217;s just that if we take time to write every detail that we need, then we have less time for other parts of the project. That&#8217;s why learning to code also consists of knowing how to use pre-existing components such as <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, that help you get your website up and running faster.</p><p>By the end of the week, we were almost finished with the group project, and over the weekend we will do individual work on various features that need to be completed.</p><p>I also had the opportunity to do a presentation this week on Test-Driven Development (TDD) at the <a href="http://www.meetup.com/Origin-Code-Academy-Meetup/" target="_blank">Origin Code Academy meetup</a>. TDD is a software development method that consists of short cycles with the following phases:</p><ul><li>Red: Write a test for a feature that does not yet exist, therefore the test fails.</li><li>Green: Write the minimum code necessary to make the test pass.</li><li>Refactor: Clean up/reorganize the code.</li></ul><p>The above cycle is repeated until all the features have been added. The TDD approach results in a complete collection of tests for each feature, and tight efficient code that contains only the necessary code for each feature.</p><p>My presentation included a demonstration of TDD with a simple example of a Calculator class with methods for adding, subtracting, etc. My lovely assistant Adriann stood with me for the presentation, and ran the demo with me, so that we could demonstrate ping-pong pair programming in TDD. This meant that first I wrote a failing test (red phase), then Adriann wrote the minimum code needed to make the test pass (green phase), and then I cleaned up the code (refactor phase). In the next cycle, Adriann wrote the failing test, and then I made it pass, and so on.</p><p>By the way, I don&#8217;t know if there is a saying that if a demo can go wrong, it will, but there should be a saying like that! Yes, of course there was a problem with the demo, and luckily Cameron jumped in to help it get back on track.</p><p>One of the most interesting parts about the presentation was that I actually received quite a few questions about testing in general, so I had the opportunity to explain the importance of unit testing, and having a collection of tests that can be automatically run for an application.</p><p>We had two guest speakers this week. The first was Abinathab John Roy Bennet, senior program manager at <a href="https://www.microsoft.com/en-us/" target="_blank">Microsoft</a> in Seattle. He has extensive developer experience and only recently made the change to be a program manager, so he had some good advice for us.</p><p>The second speaker was Mike Glanz, CEO and co-founder of <a href="http://www.hireahelper.com" target="_blank">Hire A Helper</a>. He talked about what junior developers need to do to prove to prospective employers that it is worth it to hire them, and gave us a lot of food for thought.</p><p>&nbsp;</p><br /><a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/kdssnyder.wordpress.com/99/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/kdssnyder.wordpress.com/99/" /></a><img alt="" border="0" src="https://pixel.wp.com/b.gif?host=kdssnyder.wordpress.com&#038;blog=101346606&#038;post=99&#038;subd=kdssnyder&#038;ref=&#038;feed=1" width="1" height="1" />]]>
+            </content:encoded>
+            <wfw:commentRss>https://kdssnyder.wordpress.com/2015/11/21/ninth-week-in-coding-bootcamp-continuing-group-project/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+            <media:content url="https://2.gravatar.com/avatar/ea7b7ac75f0e1b895abfbc3f9b76ebdf?s=96&#38;d=identicon&#38;r=G" medium="image">
+                <media:title type="html">kdssnyder</media:title>
+            </media:content>
+        </item>        
+    </channel>
+</rss>

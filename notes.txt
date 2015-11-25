@@ -1,0 +1,11 @@
+extract
+transform
+load
+
+interface ipost
+
+wp posts inherit from ipost
+
+-------------------
+API should deserialize the XML to the C# class, but needs another C# class to use to return list of posts that each contain global blog info as well as the specific post data
+------------------------------------------
