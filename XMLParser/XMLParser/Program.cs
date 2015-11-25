@@ -13,7 +13,7 @@ namespace XMLParser
     {
         static void Main(string[] args)
         {
-            
+
             // Input URL to read
             while (true)
             {
@@ -30,7 +30,7 @@ namespace XMLParser
                 Console.WriteLine("3 - Parse with LinqToXML");
 
                 string parserChoice = Console.ReadLine();
-                switch(parserChoice)
+                switch (parserChoice)
                 {
                     case "1":
                         Console.WriteLine("Parsing with XMLDocument");
@@ -48,48 +48,23 @@ namespace XMLParser
                         Console.WriteLine("Parsing with XMLDocument");
                         parseWithXMLDocument(inputURL);
                         break;
-                }              
-           }
+                }
+            }
 
             Console.ReadLine();
         }
 
-        
+
         // Parse the XML at the input URL with XMLDocument
         public static void parseWithXMLDocument(string inputURL)
         {
-            int i;
 
             // Parse the XML in the URL data
             try
             {
                 PostList postList = ParseXMLWordPress.ParseXMLWordPressXMLDoc(inputURL);
-              
-                if (postList.Posts.Count() > 0)
-                {
-                    Console.WriteLine("# Blog Posts: {0}", postList.Posts.Count());
-                    Console.WriteLine("---------------------------------------------------------------------------");
-                    Console.WriteLine(" ");
-                    i = 1;
-                    foreach (Post post in postList.Posts)
-                    {
-                        Console.WriteLine("Post # {0}", i);
-                        Console.WriteLine("Blog Title: {0}", post.BlogInformation.Title);
-                        Console.WriteLine("Blog Link: {0}", post.BlogInformation.Link);
-                        Console.WriteLine("Blog Description: {0}", post.BlogInformation.Description);
-                        Console.WriteLine("Post Title: {0}", post.Title);
-                        Console.WriteLine("Post Publication Date: {0}", post.PublicationDate);
-                        Console.WriteLine("Post Link: {0}", post.Link);
-                        Console.WriteLine("Post Description:");
-                        Console.WriteLine(post.Description);
-                        Console.WriteLine("Post Content:");
-                        Console.WriteLine(post.Content);
-                        Console.WriteLine("---------------------------------------------------------------------------");
-                        Console.WriteLine(" ");
+                displayPosts(postList);
 
-                        ++i;
-                    }
-                }
             }
             catch (Exception e)
             {
@@ -132,6 +107,44 @@ namespace XMLParser
                 Console.WriteLine(e.Message);
             }
 
+        }
+
+        // Display posts
+        public static void displayPosts(PostList postList)
+        {
+            if (postList == null)
+            {
+                Console.WriteLine("Blog posts were not set up!");
+                return;
+            }
+            if (postList.Posts.Count() == 0)
+            {
+                Console.WriteLine("No blog posts available to display!");
+                return;
+            }
+
+            Console.WriteLine("# Blog Posts: {0}", postList.Posts.Count());
+            Console.WriteLine("---------------------------------------------------------------------------");
+            Console.WriteLine(" ");
+            int i = 1;
+            foreach (Post post in postList.Posts)
+            {
+                Console.WriteLine("Post # {0}", i);
+                Console.WriteLine("Blog Title: {0}", post.BlogInformation.Title);
+                Console.WriteLine("Blog Link: {0}", post.BlogInformation.Link);
+                Console.WriteLine("Blog Description: {0}", post.BlogInformation.Description);
+                Console.WriteLine("Post Title: {0}", post.Title);
+                Console.WriteLine("Post Publication Date: {0}", post.PublicationDate);
+                Console.WriteLine("Post Link: {0}", post.Link);
+                Console.WriteLine("Post Description:");
+                Console.WriteLine(post.Description);
+                Console.WriteLine("Post Content:");
+                Console.WriteLine(post.Content);
+                Console.WriteLine("---------------------------------------------------------------------------");
+                Console.WriteLine(" ");
+
+                ++i;
+            }
         }
 
     }
