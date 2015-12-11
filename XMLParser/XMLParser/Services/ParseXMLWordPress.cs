@@ -193,14 +193,15 @@ namespace XMLParser.Services
             {
                 var newPost = new Post();
 
-                newPost.BlogInformation = blogInfo;               
-                newPost.Link = post.Element("link").Value;
-                newPost.PublicationDate = Convert.ToDateTime(post.Element("pubDate").Value);
-                newPost.Title = post.Element("title").Value;
-                newPost.Description = post.Element("description").Value;
+                newPost.BlogInformation = blogInfo;  
 
                 XElement contentElement = post.Element(contentNameSpace + "encoded");
                 newPost.Content = post.Element(contentNameSpace + "encoded").Value;
+                             
+                newPost.Link = post.Element("link").Value;
+                newPost.PublicationDate = Convert.ToDateTime(post.Element("pubDate").Value);
+                newPost.Title = post.Element("title").Value;
+                newPost.Description = post.Element("description").Value;               
 
                 postList.Posts.Add(newPost);
             }

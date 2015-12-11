@@ -25,28 +25,28 @@ namespace XMLParser
                 }
 
                 Console.WriteLine("Enter:");
-                Console.WriteLine("1 - Parse with XMLDocument");
-                Console.WriteLine("2 - Parse with XMLSerializer");
-                Console.WriteLine("3 - Parse with LinqToXML");
+                Console.WriteLine("1 - Parse with LinqToXML");
+                Console.WriteLine("2 - Parse with XMLDocument");
+                Console.WriteLine("3 - Parse with XMLSerializer");
 
                 string parserChoice = Console.ReadLine();
                 switch (parserChoice)
                 {
                     case "1":
+                        Console.WriteLine("Parsing with LinqToXML");
+                        parseWithLinqXML(inputURL);
+                        break;                   
+                    case "2":
                         Console.WriteLine("Parsing with XMLDocument");
                         parseWithXMLDocument(inputURL);
                         break;
-                    case "2":
+                    case "3":
                         Console.WriteLine("Parsing with XMLSerializer");
                         parseWithXMLSerializer(inputURL);
                         break;
-                    case "3":
+                    default:
                         Console.WriteLine("Parsing with LinqToXML");
                         parseWithLinqXML(inputURL);
-                        break;
-                    default:
-                        Console.WriteLine("Parsing with XMLDocument");
-                        parseWithXMLDocument(inputURL);
                         break;
                 }
             }
