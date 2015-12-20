@@ -188,7 +188,7 @@ namespace XMLParser.Services
                 }).ToList();
 
             /*
-            var blogPosts = xmlDoc.Descendants("item");
+            var blogPosts = xmlDoc.Element("rss").Element("channel").Descendants("item");
             foreach (var post in blogPosts)
             {
                 var newPost = new Post();
